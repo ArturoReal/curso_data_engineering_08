@@ -1,5 +1,5 @@
 /* 
-ADDRESSES STG SELECT
+ZIPCODE STG SELECT
 */
 {{
   config(
@@ -15,10 +15,9 @@ FROM {{source('sql_server_dbo','addresses')}}
 addresses_tr as (
 
 SELECT 
-    trim(address_id) as address_id,
-    md5(address) as address_line_id,
-    _fivetran_deleted,
-    convert_timezone('UTC',_fivetran_synced) as date_utc
+     md5(zipcode) as zipcode_id,
+     zipcode as zipcode_name,
+     md5(state) as state_id
 FROM src_addresses
 
 

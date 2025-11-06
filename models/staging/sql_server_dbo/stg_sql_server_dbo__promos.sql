@@ -20,7 +20,7 @@ SELECT
     discount as discount_usd,
     status,
     _fivetran_deleted,
-    CONVERT_TIMEZONE('UTC', _fivetran_synced) AS utc_time
+    CONVERT_TIMEZONE('UTC', _fivetran_synced) AS date_utc
 
 FROM src_promo
 UNION ALL 
@@ -30,7 +30,7 @@ SELECT
     0.0 as discount_usd,
     'inactive' as status,
     null as _fivetran_deleted,
-    CONVERT_TIMEZONE('UTC', CURRENT_DATE()) AS utc_time
+    CONVERT_TIMEZONE('UTC', CURRENT_DATE()) AS date_utc
     
 
 

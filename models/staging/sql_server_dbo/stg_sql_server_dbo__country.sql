@@ -1,5 +1,5 @@
 /* 
-ADDRESSES STG SELECT
+COUNTRY STG SELECT
 */
 {{
   config(
@@ -15,10 +15,9 @@ FROM {{source('sql_server_dbo','addresses')}}
 addresses_tr as (
 
 SELECT 
-    trim(address_id) as address_id,
-    md5(address) as address_line_id,
-    _fivetran_deleted,
-    convert_timezone('UTC',_fivetran_synced) as date_utc
+     md5(country) as zipcode_id,
+     country as country_name,
+
 FROM src_addresses
 
 
