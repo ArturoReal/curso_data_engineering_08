@@ -14,7 +14,7 @@ FROM {{source('sql_server_dbo','addresses')}}
 
 addresses_tr as (
 
-SELECT 
+SELECT DISTINCT
      md5(zipcode) as zipcode_id,
      zipcode as zipcode_name,
      md5(state) as state_id

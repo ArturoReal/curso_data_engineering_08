@@ -14,7 +14,7 @@ FROM {{source('sql_server_dbo','orders')}}
 
 shipping_tr as (
 
-SELECT 
+SELECT DISTINCT
     case when shipping_service = '' then md5('unknown')
     else md5(shipping_service) end as shipping_service_id,
     case when shipping_service = '' then 'unknown'

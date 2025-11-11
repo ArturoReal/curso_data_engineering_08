@@ -14,7 +14,7 @@ FROM {{source('sql_server_dbo','addresses')}}
 
 addresses_tr as (
 
-SELECT 
+SELECT DISTINCT
      md5(state) as state_id,
      state as state_name,
      md5(country) as country_id

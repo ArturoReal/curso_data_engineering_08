@@ -24,12 +24,9 @@ SELECT
     case when promo_id = '' then md5('no_promo')
     else md5(promo_id) end as promo_id,
     CONVERT_TIMEZONE('UTC', estimated_delivery_at) as estimated_delivery_at_utc,
-    order_cost as order_cost_usd,
     trim(user_id) as user_id,
-    order_total as order_total_usd,
     CONVERT_TIMEZONE('UTC', delivered_at) as delivered_at_utc,
-    nullif(trim(tracking_id), '') as tracking_id,
-    status,
+    md5(status) as status_id,
     _fivetran_deleted,
     CONVERT_TIMEZONE('UTC',_fivetran_synced) as date_utc
 
